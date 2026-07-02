@@ -147,6 +147,15 @@ const HeroSection = ({
     image.src = svgUrl;
   };
 
+  const handleLogout = () => {
+    setAuth(null);
+    setSelectedFile(null);
+    setLocalFile(null);
+    setUploadedFileId(null);
+    setShareableLink(null);
+    setErrorMessage(null);
+  };
+
   return (
     <section className="min-h-screen py-24">
       <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -177,9 +186,17 @@ const HeroSection = ({
               </>
             ) : (
               <>
-                <p className="text-sm font-medium text-green-600">
-                  ✓ Signed in successfully
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-green-600">
+                    ✓ Signed in successfully
+                  </p>
+                  <button
+                    onClick={handleLogout}
+                    className="text-sm font-medium text-gray-500 hover:text-gray-700 underline underline-offset-4 transition-colors"
+                  >
+                    Sign out
+                  </button>
+                </div>
 
                 <label className="block">
                   <span className="sr-only">Choose a PDF file</span>

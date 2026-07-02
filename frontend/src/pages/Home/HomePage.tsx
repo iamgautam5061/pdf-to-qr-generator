@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 
 import Container from "../../components/Container/Container";
 import HeroSection from "./sections/HeroSection";
 
-import type { GoogleAuthResponse } from "../../types/auth";
-
 const HomePage = () => {
-  const [auth, setAuth] = useState<GoogleAuthResponse | null>(null);
+  const { auth, setAuth } = useAuth();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   console.log("Selected file:", selectedFile?.name);
